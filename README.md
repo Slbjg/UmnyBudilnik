@@ -53,17 +53,24 @@
 ## Структура проекта
 
 ```
-app/src/main/
-├── java/com/example/lab1/
-│   ├── MainActivity.kt          # Главный экран, установка будильника, приём широковещательных сообщений
-│   ├── AlarmReceiver.kt         # BroadcastReceiver, запускающий AlarmService при срабатывании таймера
-│   └── AlarmService.kt          # Фоновый сервис: звук, вибрация, акселерометр, обработка встряхиваний
-├── res/
-│   ├── layout/
-│   │   └── activity_main.xml    # Разметка экрана: TimePicker, TextView статуса, счётчик, кнопка
-│   └── values/
-│       └── themes.xml           # Тема приложения и стиль TimePickerTheme
-└── AndroidManifest.xml          # Регистрация Activity, Service, Receiver, разрешения
+lab1/                                 # Корневая папка проекта
+└── app/                              # Модуль приложения
+    └── src/                          # Исходный код
+        └── main/                     # Основная сборка
+            ├── java/com/example/lab1/          # Пакет с Kotlin-кодом
+            │   ├── MainActivity.kt             # Главный экран, установка будильника
+            │   ├── AlarmReceiver.kt            # Приёмник срабатывания будильника
+            │   └── AlarmService.kt             # Фоновый сервис (звук + акселерометр)
+            │
+            ├── res/                             # Ресурсы приложения
+            │   ├── layout/
+            │   │   └── activity_main.xml       # Интерфейс (TimePicker, кнопки, статус)
+            │   └── values/
+            │       ├── themes.xml              # Тема оформления приложения
+            │       └── strings.xml             # Текстовые строки
+            │
+            ├── AndroidManifest.xml              # Манифест (разрешения, активности, сервис)
+            └── build.gradle.kts (Module: app)   # Сборочный файл модуля
 ```
 
 ## Требования для сборки
